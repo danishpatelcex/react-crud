@@ -16,7 +16,7 @@ const [formValues, setFormValues] = useState({
 const { id } = useParams();	
 
 //onSubmit handler
-const history = useHistory();
+//const history = useHistory();
 const onSubmit = (articleObject) => {
     console.log("Props" + JSON.stringify(props));
 	axios
@@ -28,7 +28,7 @@ const onSubmit = (articleObject) => {
 	.then((res) => {
 		if (res.status === 200) {
 		    alert("Article successfully updated");
-            history.push("/article-list"); 
+            //history.push("/article-list"); 
 		    //props.history.push("/article-list");
 		} else Promise.reject();
 	})
