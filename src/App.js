@@ -31,7 +31,7 @@ return (
 			<Navbar.Brand>
 				<Link to={"/create-article"}
 				className="nav-link">
-				React MERN Stack App
+				Article CMS
 				</Link>
 			</Navbar.Brand>
 
