@@ -9,7 +9,7 @@ const { _id, title, description, url } = props.obj;
 const deleteArticle = () => {
 	axios
 	.delete(
-"http://localhost:8080/articles/delete-article/" + _id)
+"http://localhost:8080/article/" + _id)
 	.then((res) => {
 		if (res.status === 200) {
 		alert("Article successfully deleted");
