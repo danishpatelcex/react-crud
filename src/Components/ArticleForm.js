@@ -1,7 +1,7 @@
 import React from "react";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FormGroup, FormControl, Button } from "react-bootstrap";
+import { FormGroup, Button } from "react-bootstrap";
 
 const ArticleForm = (props) => {
 const validationSchema = Yup.object().shape({
@@ -9,7 +9,7 @@ const validationSchema = Yup.object().shape({
 	description: Yup.string().required("Rquired"),
 	url: Yup.string().required("Rquired"),
 });
-console.log(props);
+
 return (
 	<div className="form-wrapper">
 	<Formik {...props} validationSchema={validationSchema}>
@@ -41,6 +41,7 @@ return (
 			component="span"
 			/>
 		</FormGroup>
+        <br/>
 		<Button variant="danger" size="lg"
 			block="block" type="submit">
 			{props.children}

@@ -1,8 +1,7 @@
 // EditStudent Component for update student data
 // Import Modules
 import React, { useState, useEffect } from "react";
-import { useParams  } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useParams, useNavigate  } from "react-router-dom";
 import axios from "axios";
 import ArticleForm from "./ArticleForm";
 
@@ -16,9 +15,9 @@ const [formValues, setFormValues] = useState({
 const { id } = useParams();	
 
 //onSubmit handler
-//const history = useHistory();
+const navigate = useNavigate();
 const onSubmit = (articleObject) => {
-    console.log("Props" + JSON.stringify(props));
+    
 	axios
 	.put(
 		"http://localhost:8080/article/" +
@@ -28,8 +27,7 @@ const onSubmit = (articleObject) => {
 	.then((res) => {
 		if (res.status === 200) {
 		    alert("Article successfully updated");
-            //history.push("/article-list"); 
-		    //props.history.push("/article-list");
+            navigate("/article-list"); 
 		} else Promise.reject();
 	})
 	.catch((err) => {
@@ -39,11 +37,7 @@ const onSubmit = (articleObject) => {
 };
 
 // Load data from server and reinitialize student form
-
-console.log('top==='+ id);
 useEffect(() => {
-   
-    console.log("TESING====>" + id);
 	axios
 	.get(
 		"http://localhost:8080/article/" + id
